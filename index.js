@@ -20,6 +20,10 @@ app.get('/script.js', function (req, res){
     res.sendFile(__dirname + "/script.js");
 });
 
+app.get('/style.css', function (req, res){
+    res.sendFile(__dirname + "/style.css");
+});
+
 app.get('/list/', function (req, res){
     let ar =[]
 
