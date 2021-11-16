@@ -1,5 +1,5 @@
 let ans =[];
-
+//send data
 document.querySelector('.bt').addEventListener('click', ()=>{
     let sent = document.getElementById('nm').value.replace(/\s+/g, '')
     let num = parseInt(document.getElementById('nr').value)
