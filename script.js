@@ -1,10 +1,13 @@
 let ans =[];
 //send data
 document.querySelector('.bt').addEventListener('click', ()=>{
+    
     let sent = document.getElementById('nm').value.replace(/\s+/g, '')
+    console.log(sent);
     let num = parseInt(document.getElementById('nr').value)
     let ola = {sentence: sent, num: num}
     $.get(`/list/?sentence=${ola.sentence}&num=${ola.num}`, function(data){
+        console.log(data);
         ans.push(data)
         document.querySelector('.ans').querySelectorAll('li').forEach((e)=>{
             e.remove()

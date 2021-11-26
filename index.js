@@ -26,21 +26,19 @@ app.get('/style.css', function (req, res){
 
 app.get('/list/', function (req, res){
     let ar =[]
-
+    console.log('got the get');
     //We will get the Url data
     const urla = req.url
     const q =  url.parse(urla, true);
     let sub
     let sen
-
     //Going to run through the dictionary Array
     for(let i=0; i<dic.length; i++) {
         //Substract whole String before the numbered Charachter
         sub = dic[i].substr(dic[i].length - q.query.num);
-
-        //Again ubstract whole String before the numbered Charachter
+        
+        //Again substract whole String before the numbered Charachter
         sen = q.query.sentence.substr(q.query.sentence.length - q.query.num)
-
         //Check if they are the same
         if(sub == sen) {
 
@@ -48,6 +46,7 @@ app.get('/list/', function (req, res){
          ar.push(dic[i])
         }
 }
+console.log(`result count: ${ar.length}`);
 
 res.setHeader('Content-Type', 'application/json');
 //Send the Array
@@ -56,7 +55,7 @@ res.send(JSON.stringify(ar))
 })
 
 app.listen(port, function () {
-    console.log('started');
+    console.log(`started on "localhost:${port}"`);
 })
 
 
